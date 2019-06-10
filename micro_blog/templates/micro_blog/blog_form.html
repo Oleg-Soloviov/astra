@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Micro blog</title>
+    <style>
+        * {color:red}
+        textarea { width: 100%}
+        .col {float:left}
+        .form {width:50%}
+        .list {width:50%}
+
+    </style>
+</head>
+<body>
+<div class="col form">
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+<div class="col list">
+    <ol type="1">
+        {% for message in message_list %}
+            <li>{{ message|truncatechars:15 }}</li>
+        {% endfor %}
+    </ol>
+</div>
+</body>
+</html>
