@@ -10,13 +10,13 @@
     </style>
 </head>
 <body>
-<div class="col form">
+<div class="col">
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Отправить">
     </form>
 </div>
-<div class="col list">
+<div class="col">
     <ol type="1">
         {% for message in message_list %}
             <li>{{ message|truncatechars:15 }}</li>
